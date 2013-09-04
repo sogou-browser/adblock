@@ -1,0 +1,101 @@
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <style>
+            body {
+                margin: 0px;
+                padding: 0px;
+
+            }
+            table {
+                border-collapse:collapse;
+                font-family: 'Trebuchet MS', Verdana;
+                width: 100%;
+                table-layout: fixed;
+            }
+            th {
+                background-color: #cccccc;
+            }
+            table,th, td {
+                border: 1px solid #AAA;
+                text-overflow: ellipsis;
+            }
+            th.table-sortable {
+                cursor:pointer;
+                background-image:url("sortable.gif");
+                background-position:center left;
+                background-repeat:no-repeat;
+                padding-left:12px;
+            }
+            th.table-sorted-asc {
+                background-image:url("sorted_up.gif");
+                background-position:center left;
+                background-repeat:no-repeat;
+            }
+            th.table-sorted-desc {
+                background-image:url("sorted_down.gif");
+                background-position:center left;
+                background-repeat:no-repeat;
+            }
+			.rule_container {
+				max-height: 100px;
+				overflow-y: auto;
+			}
+            .alternate
+            {
+                background-color: #eee;
+            }
+            td
+            {
+                max-width: 800px;
+                word-break: break-all;
+                overflow-x: auto;
+            }
+            select.table-autofilter {
+                max-width: 100px;
+            }
+        </style>
+        <script src="table.js"></script>
+        <script src="jquery-ui/js/jquery-1.4.4.min.js"></script>
+    </head>
+<body>
+    <table class="table-stripeclass:alternate table-autosort table-autofilter">
+        <thead>
+            <tr>
+                <th class="table-sortable:numeric table-filterable" style="width: 100px">type</th>
+                <th class="table-sortable:default table-filterable" style="min-width:300px;">url</th>
+                <th class="table-sortable:default table-filterable" style="width: 100px">filter name</th>
+                <th style="min-width:300px;">pattern</th>
+            </tr>
+        </thead>
+        <tbody id="log-tbody">
+        </tbody>
+    </table>
+    <script>
+        var sortTimeoutId = 0;
+        var types = ["元素", "css", "全局css", "元素白名单", "css白名单", "页面白名单"];
+        function addLog(log) {
+            for (var i = 0; i < log.filters.length; ++i)
+            {
+                $("<tr>")
+                    .append("<td>" + types[log.filters[i].type] + "</td>")
+                    .append("<td>" + log.url + "</td>")
+                    .append("<td>" + (typeof(log.filters[i].name) != "undefined" ? log.filters[i].name : "user") + "</td>")
+                    .append("<td><div class='rule_container'>" + log.filters[i].patterns.join("<br/>") + "</div></td>")
+                    .appendTo("#log-tbody");
+                if (sortTimeoutId)
+                {
+                    clearTimeout(sortTimeoutId);
+                }
+                sortTimeoutId = setTimeout(function(){
+                    var table = document.getElementsByTagName("table")[0];
+                    Table.autofilter(table);
+                    Table.sortAgain(table);
+                    sortTimeoutId = 0;
+                } , 1000);
+            }
+        }
+        sogouExplorer.command.contentFilter.onContentFilterLog.addListener(addLog);
+    </script>
+</body>
+</html>

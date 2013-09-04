@@ -1,0 +1,30 @@
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="css/popup.css">
+</head>
+<body>
+    <div id="normalContent" style="display: none">
+        <div><input id="enableABP" type="checkbox"><label for="enableABP">开启广告过滤</label></input></div>
+        <div><input id="siteEnabled" type="checkbox"><label for="siteEnabled">为该网站启用过滤</label></input></div>
+        <div class="spacer"></div>
+        <button id="importFilters" class='ui-button' state="normal">订阅过滤规则库</button>
+        <button id="easyCreateFilter" class='ui-button' state="normal">手动过滤</button>
+    </div>
+    <div id="clippingContent" style="display: none">
+        <div>请点击要屏蔽的元素</div>
+        <div class="spacer"></div>
+        <button id="cancelButton" class='ui-button' state="normal">取消</button>
+    </div>
+    <div id="notAppliableContent" style="display: none">
+        <div>当前页面无法进行广告过滤</div>
+    </div>
+    <div id="injectingContent" style="display: block">
+        <div>正在加载广告过滤脚本</div>
+    </div>
+    <div>
+        <button id="openOption" class='ui-button' state="normal">选项</button>
+    </div>
+    <script src="script/popup.js"></script>
+</body>
+</html>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension>
+    <id>com.sogou.ABP</id>
+    <name>广告过滤</name>
+    <show_icon>true</show_icon>
+    <version>0.3.6</version>
+    <request_api_version>7</request_api_version>
+    <description>过滤页面中的广告，让你真正 小！清！新！（测试版）</description>
+    <background page="background.html">
+    </background>
+    <content_scripts></content_scripts>
+    <option page="option.html" width="750" height="600"></option>
+    <author>TuotuoXP, Amax and Nir</author>
+</extension>

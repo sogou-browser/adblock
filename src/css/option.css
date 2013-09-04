@@ -1,0 +1,25 @@
+html {
+    padding: 0px;
+    margin: 0px;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 13px;
+    padding: 0px;
+    margin: 0px;
+}
+
+td {
+    font-size: 13px;
+    vertical-align: top;
+    text-align: left;
+}
+
+.rawFilters {
+    display: none;
+}
+
+#sogou_test_hidden_div {
+	display: none;
+}

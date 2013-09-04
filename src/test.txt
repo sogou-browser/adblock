@@ -1,0 +1,2 @@
+[Adblock Plus 2.0]
+baidu.com###lg

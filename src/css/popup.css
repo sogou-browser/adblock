@@ -1,0 +1,42 @@
+
+
+body {
+    font-size: 75%;
+    font-family: Helvetica, Arial, sans-serif;
+    background: #ffffff;
+    color: #000000;
+}
+.ui-button {
+    display: inline-block;
+    position: relative;
+    padding: 3px;
+    margin-right: .1em;
+    text-decoration: none !important;
+    cursor: pointer;
+    text-align: center;
+    zoom: 1;
+    overflow: visible;
+    border-radius: 4px;
+}
+.ui-button[state='normal'] {
+    border: 1px solid lightGrey;
+    background: #E6E6E6 url(jquery-ui/css/smoothness/images/ui-bg_glass_75_e6e6e6_1x400.png) 50% 50% repeat-x;
+    font-weight: normal;
+    color: #555;
+}
+.ui-button[state='disabled'] {
+    opacity: .35;
+    background-image: none;
+    cursor: default !important;
+}
+.spacer {
+    height: 7px;
+    width: 5px;
+    display: block;
+}
+#openOption {
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+}
+
