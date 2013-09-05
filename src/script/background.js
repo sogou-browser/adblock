@@ -1,6 +1,5 @@
 
 
-//sogouExplorer.browserAction.setPopup({popup:"!"});
 function getFilterFromUrl( url ) {
     if ( url.indexOf('http') != 0 ) {
         return null;

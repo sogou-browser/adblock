@@ -1,6 +1,8 @@
+
+
 html {
-    padding: 0px;
-    margin: 0px;
+    padding: 0;
+    margin: 0;
 }
 
 body {
@@ -21,5 +23,6 @@ td {
 }
 
 #sogou_test_hidden_div {
-	display: none;
+    display: none;
 }
+
